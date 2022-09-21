@@ -95,28 +95,6 @@ class Api {
     })
     .then(this._checkResponse);
   }
-/*
-  likeCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'PUT',
-      credentials: "include",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(this._checkResponse);
-  }
-
-  offLikeCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      credentials: "include",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(this._checkResponse);
-  }*/
 }
 
 const api = new Api('https://api.kotova.mesto.nomoredomains.sbs');
