@@ -89,6 +89,7 @@ class Api {
    if (isLiked === true) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
+      credentials: "include",
       headers: {
         'Content-Type': 'application/json'
       }
