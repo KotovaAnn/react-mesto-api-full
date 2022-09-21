@@ -106,7 +106,7 @@ class Api {
     .then(this._checkResponse);
    }
   }
-
+/*
   likeCard(cardId) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
@@ -127,7 +127,7 @@ class Api {
       }
     })
     .then(this._checkResponse);
-  }
+  }*/
 }
 
 const api = new Api('https://api.kotova.mesto.nomoredomains.sbs');
