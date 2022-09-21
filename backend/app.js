@@ -9,11 +9,9 @@ const routes = require('./routes/index');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 4000, MONGO_URL } = process.env;
+const { PORT = 4000, MONGO_URL = 'mongodb://localhost:27017/mestodb' } = process.env;
 const app = express();
 const errorHandler = require('./middlewares/error');
-
-const InternalServerError = require('./errors/internal-server-err');
 
 app.use(cookieParser());
 app.use(express.json());
@@ -35,7 +33,7 @@ app.get('/crash-test', () => {
 
 app.use(routes);
 
-async function main(res, next) {
+async function main() {
   try {
     await mongoose.connect(MONGO_URL, {
       useNewUrlParser: true,
@@ -45,7 +43,7 @@ async function main(res, next) {
     console.log(`Сервер запущен на ${PORT} порту`);
     return;
   } catch (err) {
-    next(new InternalServerError('Внутренняя ошибка сервера'));
+    console.log('Внутренняя ошибка сервера');
   }
 }
 
