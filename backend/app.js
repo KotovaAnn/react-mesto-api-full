@@ -20,12 +20,19 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'https://kotova.mesto.nomoredomains.sbs',
+    origin: '*',
     credentials: true,
   }),
 );
 
 app.use(requestLogger);
+
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.use(routes);
 
 async function main(res, next) {
