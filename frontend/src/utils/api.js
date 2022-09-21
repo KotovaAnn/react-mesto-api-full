@@ -129,5 +129,5 @@ class Api {
   }
 }
 
-const api = new Api('http://localhost:4000');
+const api = new Api('https://api.kotova.mesto.nomoredomains.sbs');
 export default api;

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,7 +9,7 @@ const routes = require('./routes/index');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 4000 } = process.env;
+const { PORT = 4000, MONGO_URL } = process.env;
 const app = express();
 const errorHandler = require('./middlewares/error');
 
@@ -18,7 +20,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://kotova.mesto.nomoredomains.sbs',
     credentials: true,
   }),
 );
@@ -28,7 +30,7 @@ app.use(routes);
 
 async function main(res, next) {
   try {
-    await mongoose.connect('mongodb://localhost:27017/mestodb', {
+    await mongoose.connect(MONGO_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: false,
     });

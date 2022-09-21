@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:4000';
+export const BASE_URL = 'https://api.kotova.mesto.nomoredomains.sbs';
 
 function checkResponse(res) {
   return res.ok
