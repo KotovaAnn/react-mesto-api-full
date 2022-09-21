@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'http://kotova.mesto.nomoredomains.sbs',
+    origin: 'https://kotova.mesto.nomoredomains.sbs',
     credentials: true,
   }),
 );
