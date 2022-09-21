@@ -18,7 +18,12 @@ const InternalServerError = require('./errors/internal-server-err');
 app.use(cookieParser());
 app.use(express.json());
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ['https://kotova.mesto.nomoredomains.sbs', 'http://localhost:3000'],
+    credentials: true,
+  }),
+);
 
 app.use(requestLogger);
 
