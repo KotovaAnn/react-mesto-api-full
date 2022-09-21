@@ -18,12 +18,7 @@ const InternalServerError = require('./errors/internal-server-err');
 app.use(cookieParser());
 app.use(express.json());
 
-app.use(
-  cors({
-    origin: '*',
-    credentials: true,
-  }),
-);
+app.use(cors());
 
 app.use(requestLogger);
 
