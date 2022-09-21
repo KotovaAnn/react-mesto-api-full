@@ -86,25 +86,14 @@ class Api {
   }
 
   changeLikeCardStatus(cardId, isLiked) {
-   if (isLiked === true) {
     return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'PUT',
+      method: isLiked ? 'PUT' : 'DELETE',
       credentials: "include",
       headers: {
         'Content-Type': 'application/json'
       }
     })
     .then(this._checkResponse);
-   } else {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
-      method: 'DELETE',
-      credentials: "include",
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(this._checkResponse);
-   }
   }
 /*
   likeCard(cardId) {
