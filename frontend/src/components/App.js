@@ -201,7 +201,7 @@ function App() {
         if(res) {
           setRegistered(true);
           setIsInfotooltip(true);
-          history.push('/sign-in');
+          history.push('/signin');
         } 
       })
       .catch(err => {
@@ -228,7 +228,7 @@ function App() {
     auth.signout()
       .then((res) => {
         setLoggedIn(false);
-        history.push('/sign-in');
+        history.push('/signin');
         setUserEmail("");
       })
       .catch(err => {
