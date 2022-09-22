@@ -242,10 +242,10 @@ function App() {
         <CurrentUserContext.Provider value={currentUser}>
           <Header userEmail={userEmail} signOut={signOut} />
           <Switch>
-            <Route path="/sign-in">
+            <Route path="/signin">
               <Login handleLogin={handleLogin} />
             </Route>
-            <Route path="/sign-up">
+            <Route path="/signup">
               <Register handleRegistration={handleRegistration} />
             </Route>
             <ProtectedRoute
