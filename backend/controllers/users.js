@@ -99,6 +99,8 @@ const login = async (req, res, next) => {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
         sameSite: true,
+        SameSite: 'none',
+        Secure: true,
       },
     );
     return res.send(user);
@@ -106,7 +108,7 @@ const login = async (req, res, next) => {
     return next(err);
   }
 };
-
+none
 const signout = async (res, next) => {
   try {
     return res.clearCookie('jwt');
