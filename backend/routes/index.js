@@ -4,7 +4,7 @@ const { userRouter } = require('./users');
 const { cardRouter } = require('./cards');
 const auth = require('../middlewares/auth');
 const NotFoundError = require('../errors/not-found-err');
-const { login, createUser } = require('../controllers/users');
+const { login, createUser, signout } = require('../controllers/users');
 const regex = require('../utils/constants');
 
 router.post('/signin', celebrate({
@@ -27,7 +27,7 @@ router.post('/signup', celebrate({
 }), createUser);
 
 router.use(auth);
-
+router.post('/signout', signout);
 router.use(userRouter);
 router.use(cardRouter);
 router.get('/signout', (req, res) => {

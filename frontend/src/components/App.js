@@ -225,10 +225,15 @@ function App() {
   }
 
   function signOut() {
-    setLoggedIn(false);
-    //localStorage.removeItem('token');
-    history.push('/sign-in');
-    setUserEmail("");
+    api.signout()
+      .then((res) => {
+        setLoggedIn(false);
+        history.push('/sign-in');
+        setUserEmail("");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   }
 
   return (

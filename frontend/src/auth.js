@@ -29,3 +29,10 @@ export function authorize(email, password) {
     body: JSON.stringify({ email, password })
   }).then((res) => checkResponse(res));
 }
+
+export function sigout() {
+  return fetch(`${BASE_URL}/signout`, {
+    method: 'GET',
+    credentials: "include",
+  }).then((res) => checkResponse(res));
+}

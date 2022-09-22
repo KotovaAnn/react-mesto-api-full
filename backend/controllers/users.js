@@ -107,6 +107,14 @@ const login = async (req, res, next) => {
   }
 };
 
+const signout = async (res, next) => {
+  try {
+    return res.clearCookie('jwt');
+  } catch (err) {
+    return next(err);
+  }
+};
+
 const profileUpdate = async (req, res, next) => {
   const userId = req.user._id;
   const { name, about } = req.body;
@@ -155,6 +163,7 @@ module.exports = {
   getUserbyId,
   createUser,
   login,
+  signout,
   profileUpdate,
   avatarUpdate,
 };
