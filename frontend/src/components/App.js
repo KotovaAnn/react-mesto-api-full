@@ -228,7 +228,7 @@ function App() {
     auth.signout()
       .then((res) => {
         setLoggedIn(false);
-        history.push('/signin');
+        history.push('/sign-in');
         setUserEmail("");
       })
       .catch(err => {
@@ -242,10 +242,10 @@ function App() {
         <CurrentUserContext.Provider value={currentUser}>
           <Header userEmail={userEmail} signOut={signOut} />
           <Switch>
-            <Route path="/signin">
+            <Route path="/sign-in">
               <Login handleLogin={handleLogin} />
             </Route>
-            <Route path="/signup">
+            <Route path="/sign-up">
               <Register handleRegistration={handleRegistration} />
             </Route>
             <ProtectedRoute
