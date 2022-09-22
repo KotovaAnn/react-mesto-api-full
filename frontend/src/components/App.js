@@ -201,7 +201,7 @@ function App() {
         if(res) {
           setRegistered(true);
           setIsInfotooltip(true);
-          history.push('/signin');
+          history.push('/sign-in');
         } 
       })
       .catch(err => {
