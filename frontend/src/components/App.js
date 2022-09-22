@@ -225,7 +225,7 @@ function App() {
   }
 
   function signOut() {
-    api.signout()
+    auth.signout()
       .then((res) => {
         setLoggedIn(false);
         history.push('/sign-in');
