@@ -1,2 +1,2 @@
-const regex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/;
+const regex = /(:?(?:https?:\/\/)?(?:www\.)?)?[-a-z0-9]+\.\w+/g;
 module.exports = regex;
