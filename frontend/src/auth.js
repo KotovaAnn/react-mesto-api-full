@@ -30,7 +30,7 @@ export function authorize(email, password) {
   }).then((res) => checkResponse(res));
 }
 
-export function sigout() {
+export function signout() {
   return fetch(`${BASE_URL}/signout`, {
     method: 'GET',
     credentials: "include",
