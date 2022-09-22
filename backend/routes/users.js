@@ -1,6 +1,7 @@
 const { celebrate, Joi } = require('celebrate');
 
 const userRouter = require('express').Router();
+const regex = require('../utils/constants');
 
 const {
   getUsers,
@@ -27,8 +28,7 @@ userRouter.patch('/users/me', celebrate({
 
 userRouter.patch('/users/me/avatar', celebrate({
   body: Joi.object().keys({
-    // eslint-disable-next-line no-useless-escape
-    avatar: Joi.string().required().regex(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?$/),
+    avatar: Joi.string().required().pattern(regex),
   }),
 }), avatarUpdate);
 
